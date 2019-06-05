@@ -1,6 +1,4 @@
 # Aervtas.github.io
 
 --------------------
-**This is a page to log and keep track of projects**
-
-Begin the portfolio!
+**This is a Blog to keep track of projects, books, and just my life**
