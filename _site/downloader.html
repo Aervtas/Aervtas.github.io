@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Image Downloader</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <nav>
+  
+    <a href="/" >Home</a>
+  
+    <a href="/about.html" >About</a>
+  
+    <a href="/blog.html" >Blog</a>
+  
+    <a href="/library.html" >Library</a>
+  
+    <a href="/downloader.html" class="current">Image Downloader</a>
+  
+</nav>
+
+    <h1>4chan Thread Image Downloader</h1>
+
+<form class="" action="index.html" method="post">
+  4chan Thread URL:<br>
+  <input type="text" id="URL"><br>
+  <button type="button" id="search">Search</button>
+</form>
+
+<article id="imageContainer">
+
+</article>
+
+<div id="text">
+
+</div>
+
+<script>
+  $(document).ready(function() {
+
+    $("#search").on("click", function() {
+      $("#imageContainer").empty();
+      var inputValue = $("#URL").val();
+      var arr = inputValue.split("/");
+      var query = 'https://a.4cdn.org/'+arr[3]+'/thread/'+arr[5]+'.json';
+      $("#imageContainer").append("JSON URL: "+query+"<br>");
+      $("#imageContainer").append("Images: <br>");
+
+      $.getJSON( query, function( data ) {
+        var items = [];
+        $.each( data, function( key, val ) {
+          items.push( "<li id='" + key + "'>" + val + "</li>" );
+        });
+
+        $( "<ul/>", {
+          "class": "my-new-list",
+          html: items.join( "" )
+          }).appendTo( "body" );
+        });
+    });
+
+  });
+</script>
+
+  </body>
+</html>
