@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <title>Image Downloader</title>
     <link rel="stylesheet" href="/assets/css/styles.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   </head>
   <body>
     <nav>
@@ -36,7 +35,7 @@
 <div id="text">
 
 </div>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
 <script>
   $(document).ready(function() {
 
@@ -47,18 +46,12 @@
       var query = 'https://a.4cdn.org/'+arr[3]+'/thread/'+arr[5]+'.json';
       $("#imageContainer").append("JSON URL: "+query+"<br>");
       $("#imageContainer").append("Images: <br>");
+      console.log("test, test");
+      $.get(query, function(data){
+        console.log("made it");
+        console.log(data.toString());
+      });
 
-      $.getJSON( query, function( data ) {
-        var items = [];
-        $.each( data, function( key, val ) {
-          items.push( "<li id='" + key + "'>" + val + "</li>" );
-        });
-
-        $( "<ul/>", {
-          "class": "my-new-list",
-          html: items.join( "" )
-          }).appendTo( "body" );
-        });
     });
 
   });
