@@ -54,7 +54,7 @@ title: Image Downloader
         if(content.posts[i].tim){
           var thumb = "https://i.4cdn.org/"+board+"/"+content.posts[i].tim+"s.jpg";
           var picture = "https://i.4cdn.org/"+board+"/"+content.posts[i].tim+content.posts[i].ext;
-          $("#finalContainer").append("<br>"+(i+1)+": "+"<a href=\""+picture+"\" download>"+"<img onmouseover=\"bigmake(this)\" onmouseout=\"normalmake(this)\" src=\""+picture+"\" width=\"100\">"+"</a>"+content.posts[i].w+"x"+content.posts[i].h);
+          $("#finalContainer").append("<br>"+(i+1)+": "+"<a href=\""+picture+"\" download><img onmouseover=\"bigmake(this)\" onmouseout=\"normalmake(this)\" src=\""+picture+"\" width=\"100\"></a>"+content.posts[i].w+"x"+content.posts[i].h);
           //$("#finalContainer").append("<img src=\""+thumb+"\">");
         }
       }
